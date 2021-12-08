@@ -1,11 +1,13 @@
-# Github-Vorlage
+# React & TypeScript Kurs von [Workshops.de](https://workshops.de/), geleitet von [Christian Ost](https://workshops.de/profiles/ca057)
+
+## Github-Vorlage
 * Original: https://github.com/ca057/react-ts-workshop
 * Fork: https://github.com/Akashic101/react-ts-workshop
 
-# Website
+## Website
 https://workshops.de/classroom/2710027397/dashboard
 
-# Slides
+## Slides
 * React TypeScript Workshop Introduction: https://davidmoll.net/wp-content/uploads/2021/12/Workshops.DE_005_React_TypeScript_Workshop_Introduction.pdf
 * JavaScript for React 2021: https://davidmoll.net/wp-content/uploads/2021/12/Workshops.DE_014_JavaScript_Basics_2021.pdf
 * TypeScript for React 2021: https://davidmoll.net/wp-content/uploads/2021/12/Workshops.DE_015_TypeScript_Basics_2021.pdf
@@ -14,11 +16,11 @@ https://workshops.de/classroom/2710027397/dashboard
 * React with TypeScript | Router: https://davidmoll.net/wp-content/uploads/2021/12/Workshops.DE_030_React_with_TypeScript___React_Router.pdf
 * React with TypeScript | React Redux: https://davidmoll.net/wp-content/uploads/2021/12/Workshops.DE_040_React_with_TypeScript___React_Redux.pdf
 
-# Miro-board
+## Miro-board
 ![image](https://davidmoll.net/wp-content/uploads/2021/12/React-TypeScript-Workshop-12_2021.jpg)
 
-## PDF
+### PDF
 https://davidmoll.net/wp-content/uploads/2021/12/React-TypeScript-Workshop-12_2021.pdf
 
-## CSV
+### CSV
 https://davidmoll.net/wp-content/uploads/2021/12/React-TypeScript-Workshop-12_2021.csv
