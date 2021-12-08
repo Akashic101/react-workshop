@@ -1,46 +1,28 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+import { useState } from "react";
 
-interface CounterInterface {
-	initialValue?: number;
-	stopValue?: number;
-	stepSize?: number;
+interface CounterProps {
+  initialValue?: number;
 }
 
-const Counter: React.FC<CounterInterface> = ({
-	initialValue = 100,
-	stopValue = 110,
-	stepSize = 1,
-}) => {
-	const [count, setCount] = useState<number>(initialValue);
+const Counter: React.FC<CounterProps> = ({ initialValue = 100 }) => {
+  const [count, setCount] = useState(initialValue);
 
-	const incrementCount = () => {
-		if (count + 1 * stepSize > stopValue) {
-			return;
-		}
-		setCount(count + 1 * stepSize);
-	};
+  const incrementCount = () => {
+    setCount((c) => c + 1);
+  };
+  const decrementCount = () => {
+    setCount((c) => c - 1);
+  };
 
-	const decrementCount = () => {
-		setCount(count - 1 * stepSize);
-	};
-
-	const resetCount = () => {
-		setCount(initialValue);
-	};
-
-	return (
-		<div id="counter">
-			<button className="decrement" onClick={decrementCount}>
-				-
-			</button>
-			<p>{count}</p>
-			<button className="increment" onClick={incrementCount}>
-				+
-			</button>
-			<button className="reset" onClick={resetCount}>
-				Reset
-			</button>
-		</div>
-	);
+  return (
+    <div className="row">
+      <button onClick={decrementCount}>-</button>
+      <p>{count}</p>
+      <button onClick={incrementCount}>+</button>
+    </div>
+  );
 };
+
 export default Counter;

@@ -1,9 +1,7 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable react/react-in-jsx-scope */
+const name: string = "David";
 
-const name = "David";
-
-const SimpleName: React.FC = () => {
-	return <div>Hallo {name}</div>;
-};
+const SimpleName = () => <div>Hello {name}</div>;
 
 export default SimpleName;

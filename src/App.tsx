@@ -1,44 +1,39 @@
-/* eslint-disable react/react-in-jsx-scope */
-import SimpleName from "./components/SimpleName";
-import Counter from "./components/Counter";
-import BookList from "./components/BookList";
-import Book from "./components/Book";
+import React from "react";
+import { NavLink, Redirect, Route, Switch } from "react-router-dom";
+
+import "./App.css";
+import Books from "./screens/books";
+import Book from "./screens/book";
+import Playground from "./screens/Playground";
 
 function App() {
-	return (
-		<div className="App">
-			<div>
-				<BookList
-					books={[
-						{ title: "My first book", price: 11.11 },
-						{ title: "My second book", price: 22.22, numPages: 4 },
-					]}
-					onItemClick={(book) => alert(book.price)}
-				/>
-				<Book />
-			</div>
-			<div className="innerDiv">
-				<h1>Normaler Counter</h1>
-				<Counter />
-			</div>
-			<div className="innerDiv">
-				<h1>Counter mit initial Value</h1>
-				<Counter initialValue={50} />
-			</div>
-			<div className="innerDiv">
-				<h1>Counter mit initial Value und StopValue</h1>
-				<Counter initialValue={100} stopValue={105} />
-			</div>
-			<div className="innerDiv">
-				<h1>Counter mit initial Value und StepSize</h1>
-				<Counter initialValue={50} stepSize={2} />
-			</div>
-			<div className="innerDiv">
-				<h1>Counter mit allem</h1>
-				<Counter initialValue={50} stopValue={100} stepSize={10} />
-			</div>
-		</div>
-	);
+  return (
+    <>
+      <nav>
+        <NavLink exact strict activeClassName="activeLink" to="/">
+          Home
+        </NavLink>
+        <NavLink activeClassName="activeLink" to="/playground">
+          Playground
+        </NavLink>
+        <NavLink activeClassName="activeLink" to="/books">
+          Books
+        </NavLink>
+      </nav>
+      <Switch>
+        <Redirect exact from="/" to="/books" />
+        <Route path="/playground">
+          <Playground />
+        </Route>
+        <Route path="/books/:isbn">
+          <Book />
+        </Route>
+        <Route path="/books">
+          <Books />
+        </Route>
+      </Switch>
+    </>
+  );
 }
 
 export default App;
