@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 interface CounterProps {
@@ -9,18 +9,18 @@ interface CounterProps {
 const Counter: React.FC<CounterProps> = ({ initialValue = 100 }) => {
   const [count, setCount] = useState(initialValue);
 
-  const incrementCount = () => {
+  const increment = () => {
     setCount((c) => c + 1);
   };
-  const decrementCount = () => {
+  const decrement = () => {
     setCount((c) => c - 1);
   };
 
   return (
-    <div className="row">
-      <button onClick={decrementCount}>-</button>
-      <p>{count}</p>
-      <button onClick={incrementCount}>+</button>
+    <div>
+      <button onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
     </div>
   );
 };

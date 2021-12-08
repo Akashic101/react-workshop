@@ -1,7 +1,11 @@
-/* eslint-disable @typescript-eslint/no-inferrable-types */
 /* eslint-disable react/react-in-jsx-scope */
-const name: string = "David";
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+const name: string  = "David"
 
-const SimpleName = () => <div>Hello {name}</div>;
+function SimpleName() {
+  return <p>
+    Hello {name}
+  </p>
+}
 
-export default SimpleName;
+export default SimpleName

@@ -1,35 +1,36 @@
-import React from "react";
-import { NavLink, Redirect, Route, Switch } from "react-router-dom";
+/* eslint-disable react/react-in-jsx-scope */
+import { Switch, Route, NavLink, Redirect } from "react-router-dom";
+
+import Playground from "./screens/Playground";
+import BooksScreen from "./screens/books";
+import BookScreen from "./screens/book";
 
 import "./App.css";
-import Books from "./screens/books";
-import Book from "./screens/book";
-import Playground from "./screens/Playground";
 
 function App() {
   return (
     <>
       <nav>
-        <NavLink exact strict activeClassName="activeLink" to="/">
-          Home
-        </NavLink>
-        <NavLink activeClassName="activeLink" to="/playground">
-          Playground
-        </NavLink>
-        <NavLink activeClassName="activeLink" to="/books">
+        <NavLink activeClassName="activeNav" to="/books">
           Books
+        </NavLink>
+        <NavLink activeClassName="activeNav" to="/playground">
+          Playground
         </NavLink>
       </nav>
       <Switch>
-        <Redirect exact from="/" to="/books" />
+        <Redirect exact path="/" to="/books" />
         <Route path="/playground">
           <Playground />
         </Route>
-        <Route path="/books/:isbn">
-          <Book />
+        <Route exact path="/books">
+          <BooksScreen />
         </Route>
-        <Route path="/books">
-          <Books />
+        <Route path="/books/:isbn">
+          <BookScreen />
+        </Route>
+        <Route>
+          <p>Not Found</p>
         </Route>
       </Switch>
     </>

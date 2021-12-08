@@ -1,20 +1,27 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useEffect, useState } from "react";
-import {Book} from "../../domain/types"
+import { useDispatch } from "react-redux";
+import { Book } from "../../domain/types";
+import { addBooks } from "../../store/books";
+import BookList from "./BookList";
 
-const Books: React.FC = () => {
-	const [data, setData] = useState<Book>();
-	useEffect(() => {
-		async function fetchData() {
-			const response = await fetch("http://localhost:4730/books");
-			const data = await response.json();
-			setData(data);
-		}
-    fetchData()
-	}, []); // empty array if on mount, array with dependencies e.g. for params
+function Books() {
+  const [books, setBooks] = useState<Book[]>();
+  const dispatch = useDispatch();
 
-	// use `data` here if available
-	return data ? <p>Data is available!</p> : <p>Still loading...</p>;
-};
+  useEffect(() => {
+    async function fetchBooks() {
+      const response = await fetch("http://localhost:4730/books");
+      const booksAsJson = await response.json();
+      setBooks(booksAsJson);
+      dispatch(addBooks(booksAsJson));
+    }
+
+    fetchBooks();
+  }, [dispatch]);
+
+  return <>{books ? <BookList items={books} /> : <p>Loading...</p>}</>;
+}
 
 export default Books;
+

@@ -1,28 +1,21 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
 import { Book as BookI } from "../domain/types";
 
-const Book: React.FC = () => {
-  const [book, setBook] = useState<BookI | null>(null);
+import "./Book.css";
 
-  useEffect(() => {
-    async function fetchBook() {
-      const response = await fetch("http://localhost:4730/books/9781783983667");
-      const book = await response.json();
-      setBook(book);
-    }
-    fetchBook();
-  }, []);
-
-  if (!book) {
-    return <p>Loading...</p>;
-  }
-
+interface BookProps {
+  book: BookI;
+}
+const Book: React.FC<BookProps> = ({ book }) => {
   return (
     <div>
-      <p>{book.title}</p>
-      <p>{book.subtitle}</p>
-      <p>{book.numPages} pages</p>
+      <p className="book__title">
+        {book.title}
+        <br />
+        <span>{book.subtitle}</span>
+      </p>
+      <p className="book__pages">{book.numPages} pages</p>
     </div>
   );
 };
